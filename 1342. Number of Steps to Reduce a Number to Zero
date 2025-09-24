@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<math.h>
+
+int numberOfSteps(int num) {
+    int buoc = 0;
+    if (num ==0)
+    {
+        return 0;
+    }
+    else 
+    {
+     do {
+      if(num % 2 == 0)
+      {
+        num = num/2;
+        buoc++;
+      }
+      else
+      {
+        num = num - 1;
+        buoc++;
+      }
+    }
+    while(num >0);
+    return buoc;
+    }
+}
+    
+int main()
+{
+  int input;
+  scanf("%d", &input);
+  printf("%d", numberOfSteps(input));
+}
+    
+ 
+
+
