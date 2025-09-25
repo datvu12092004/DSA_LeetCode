@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
+
+bool canConstruct(char* ransomNote, char* magazine) {
+    int count[26] = {0};
+
+    // Đếm tần suất ký tự trong magazine
+    for (int i = 0; magazine[i] != '\0'; i++) {
+        count[magazine[i] - 'a']++;
+    }
+
+    // Kiểm tra ransomNote có thể ghép từ magazine không
+    for (int i = 0; ransomNote[i] != '\0'; i++) {
+        if (count[ransomNote[i] - 'a'] == 0) {
+            printf("false\n");
+            return false;
+        }
+        count[ransomNote[i] - 'a']--;
+    }
+
+    printf("true\n");
+    return true;
+}
+
+int main() {
+    char rasom[100];
+    char maga[100];
+    scanf("%s", rasom);
+    scanf("%s", maga);
+
+    canConstruct(rasom, maga);
+    return 0;
+}
